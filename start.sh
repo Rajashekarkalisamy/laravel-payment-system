@@ -110,3 +110,15 @@ docker exec -it $APP_CONTAINER php artisan key:generate
 # Run Laravel migrations
 echo "Running Laravel migrations..."
 docker exec -it $APP_CONTAINER php artisan migrate --force
+
+
+echo ""
+echo "🎉 ========================================="
+echo "✅ Application Ready!"
+echo "🌐 Access your services at:"
+echo ""
+echo "🔹 API Server   : http://lps-api.dv/"
+echo "🔹 Adminer UI   : http://adminer.dv/"
+echo ""
+echo "📘 API Docs     : Import Postman collection (Laravel Payment System.postman_collection.json)"
+echo "🎉 ========================================="

@@ -16,20 +16,11 @@ This project is a Laravel backend system providing user authentication, product 
 
 ## 🛠 Setup Instructions
 
-### 1. Clone the Repo
+### 1. Clone the Repo and Quick Setup (one-liner)
 
 ```bash
-git clone https://github.com/Rajashekarkalisamy/laravel-payment-system.git
-cd laravel-payment-system
+git clone https://github.com/Rajashekarkalisamy/laravel-payment-system.git && cd laravel-payment-system && bash ./start.sh
 ```
-
-### 2. Quick Setup (one-liner) - Can run the project through this script
-
-```bash
-bash start.sh
-```
-
-
 
 
 ## 📡 Services Access
