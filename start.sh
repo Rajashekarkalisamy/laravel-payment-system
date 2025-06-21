@@ -63,16 +63,16 @@ else
 fi
 
 
-# Check if Dockerfile or docker-compose.yml is newer than the latest built image
+# Check if Dockerfile or docker-compose.yaml is newer than the latest built image
 NEEDS_BUILD=false
 IMAGE_NAME="laravel_app"  # match this to your docker-compose service name
 
 # Get image creation time (in seconds since epoch)
 IMAGE_CREATED=$(docker inspect -f '{{.Created}}' "$IMAGE_NAME" 2>/dev/null | xargs -I{} date -d {} +%s)
 
-# Get last modified time of Dockerfile and docker-compose.yml
+# Get last modified time of Dockerfile and docker-compose.yaml
 DOCKERFILE_UPDATED=$(date -r Dockerfile +%s)
-COMPOSEFILE_UPDATED=$(date -r docker-compose.yml +%s)
+COMPOSEFILE_UPDATED=$(date -r docker-compose.yaml +%s)
 
 if [[ $DOCKERFILE_UPDATED -gt $IMAGE_CREATED || $COMPOSEFILE_UPDATED -gt $IMAGE_CREATED ]]; then
     NEEDS_BUILD=true
