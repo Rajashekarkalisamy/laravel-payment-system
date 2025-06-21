@@ -99,10 +99,14 @@ until docker exec $DB_CONTAINER mysqladmin ping -h "localhost" --silent; do
   sleep 2
 done
 
-# Step 1: Create database if not exists (optional, Laravel will handle this if .env is correct)
+# Create database if not exists (optional, Laravel will handle this if .env is correct)
 echo "Creating database $DB_NAME inside MySQL container..."
 docker exec -i $DB_CONTAINER mysql -uroot -p$MYSQL_ROOT_PASSWORD -e "CREATE DATABASE IF NOT EXISTS \`$DB_NAME\`;"
 
-# Step 2: Run Laravel migrations
+# Laravel Application Key Generate
+echo "Laravel Application Key Generate..."
+docker exec -it $APP_CONTAINER php artisan key:generate
+
+# Run Laravel migrations
 echo "Running Laravel migrations..."
 docker exec -it $APP_CONTAINER php artisan migrate --force
